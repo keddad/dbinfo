@@ -79,6 +79,12 @@ def setup_data():
             role VARCHAR(20),
             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
         );
+
+        CREATE VIEW user_roles AS 
+        SELECT role, COUNT(*) FROM users GROUP BY role;
+
+        CREATE MATERIALIZED VIEW admin_users AS 
+        SELECT * FROM users WHERE role = 'Admin';
     """)
 
     # 3. Insert Data
@@ -88,6 +94,8 @@ def setup_data():
         ("Charlie", "Moderator")
     ]
     cur.executemany("INSERT INTO users (username, role) VALUES (%s, %s)", users)
+    
+    cur.execute("REFRESH MATERIALIZED VIEW admin_users;")
     conn.commit()
     conn.close()
 
