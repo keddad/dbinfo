@@ -67,7 +67,7 @@ Running `dbinfo` against a PostgreSQL instance:
 }
 ```
 
-## 🛠 Integration with `jq`
+## Integration with `jq`
 
 Since `dbinfo` outputs standard JSON, it pairs perfectly with `jq` for quick analysis:
 
