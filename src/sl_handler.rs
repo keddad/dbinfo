@@ -57,9 +57,10 @@ pub fn fetch_sqlite_info(conn: &Connection) -> Result<DatabaseInfo> {
     let indexes = fetch_indexes(conn)?;
     let views = fetch_views(conn)?;
 
-    Ok(DatabaseInfo {
-        tables,
-        indexes,
-        views,
-    })
-}
+            Ok(DatabaseInfo {
+                tables,
+                indexes,
+                views,
+            })
+        }
+        

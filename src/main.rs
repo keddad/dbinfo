@@ -1,9 +1,8 @@
 use std::env;
-
-mod models;
-mod pg_handler;
-mod my_handler;
-mod sl_handler;
+use dbinfo::models;
+use dbinfo::pg_handler;
+use dbinfo::my_handler;
+use dbinfo::sl_handler;
 
 fn main() -> Result<(), String> {
     let args: Vec<String> = env::args().collect();

@@ -98,9 +98,10 @@ pub fn fetch_postgres_info(client: &mut Client) -> Result<DatabaseInfo, Error> {
     let indexes = fetch_indexes(client)?;
     let views = fetch_views(client)?;
 
-    Ok(DatabaseInfo {
-        tables,
-        indexes,
-        views,
-    })
-}
+            Ok(DatabaseInfo {
+                tables,
+                indexes,
+                views,
+            })
+        }
+        
